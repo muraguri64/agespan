@@ -1,0 +1,57 @@
+{% extends 'base.html '%} {% load staticfiles %} {% block mystyles %}
+<link rel="stylesheet" type="text/css" href="{% static 'my-login.css' %}"> {% endblock %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 offset-md-3">
+      {% if error%}
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{ error }}</strong>
+        </div>
+      {%endif%}
+      <div class="card-wrapper">
+        <div class="brand">
+
+        </div>
+        <div class="card fat">
+          <div class="card-body">
+            <h4 class="card-title">Login</h4>
+            <form method="POST">
+                {% csrf_token %}
+              <div class="form-group">
+                <label for="inputEmail">E-Mail</label>
+
+                <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required autofocus>
+              </div>
+
+              <div class="form-group">
+                <label for="inputPassword">Password
+                </label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required data-eye>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" name="remember"> Remember Me
+                </label>
+              </div>
+
+              <div class="form-group no-margin">
+                <button type="submit" class="btn btn-primary btn-block">
+                  Login
+                </button>
+              </div>
+              <div class="margin-top20 text-center">
+                Don't have an account?
+                <a href="{% url 'signup' %}">Create One</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
