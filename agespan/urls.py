@@ -25,6 +25,9 @@ admin.site.site_header  = "Agespan Administration"
 admin.site.site_title   = "Agespan Administration"
 admin.site.index_title  = "Site Administration"
 
+from . import views
+
 urlpatterns = [
+    path('', views.home, name="home"),
     path('admin/', admin.site.urls),
 ]
