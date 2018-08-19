@@ -1,5 +1,6 @@
 from django.db import models
 from regions.models import Region
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -15,6 +16,8 @@ class Event(models.Model):
     organizer_name    = models.CharField(max_length=255)
     organizer_email   = models.CharField(max_length=255)
     organizer_contact = models.CharField(max_length=255)
+
+    user          = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
 
   
 
