@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'store',
     'equipment',
     'transport',
+    'agronomist',
 ]
 
 MIDDLEWARE = [
