@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'events',
     'store',
     'equipment',
+    'transport',
 ]
 
 MIDDLEWARE = [
