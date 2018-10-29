@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'equipment',
     'transport',
     'agronomist',
+    'agrovets',
 ]
 
 MIDDLEWARE = [
