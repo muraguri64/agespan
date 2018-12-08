@@ -3,6 +3,12 @@ from crops.models import Crop_Type
 from regions.models import Region 
 from django.contrib.auth.models import User
 
+
+STATUS_CHOICES=(
+    ('approved','APPROVED'),
+    ('pending','PENDING'),
+)
+
 # Create your models here.
 
 class Register_Agronomist(models.Model):
@@ -30,7 +36,7 @@ class Register_Agronomist_Request(models.Model):
 
     register_agronomist = models.ForeignKey(Register_Agronomist, models.SET_NULL, blank=True, null=True) 
     user                = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
-    status              = models.CharField(max_length=255, default='pending') 
+    status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
 
     def __str__(self):
@@ -63,7 +69,7 @@ class Request_Agronomist_Offer(models.Model):
 
     user                 = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
     request_agronomist   = models.ForeignKey(Request_Agronomist, models.SET_NULL, blank=True, null=True) 
-    status               = models.CharField(max_length=255, default='pending') 
+    status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
     def __str__(self):
         return self.offeror_name

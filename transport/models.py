@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+STATUS_CHOICES=(
+    ('approved','APPROVED'),
+    ('pending','PENDING'),
+)
+
 class Request_Transport(models.Model):
     cargo_type        = models.ForeignKey(Crop_Type, models.SET_NULL, blank=False, null=True) 
     quantity_in_tones = models.IntegerField()
@@ -36,7 +41,7 @@ class Request_Transport_Offer(models.Model):
 
     user                 = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
     request_transport    = models.ForeignKey(Request_Transport, models.SET_NULL, blank=True, null=True) 
-    status               = models.CharField(max_length=255, default='pending') 
+    status               = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
     def __str__(self):
         return self.vehicle_number_plate
@@ -74,8 +79,8 @@ class Offer_Transport_Request(models.Model):
 
 
     user              = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
-    offer_transport    = models.ForeignKey(Offer_Transport, models.SET_NULL, blank=True, null=True) 
-    status            = models.CharField(max_length=255, default='pending')
+    offer_transport   = models.ForeignKey(Offer_Transport, models.SET_NULL, blank=True, null=True) 
+    status            = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
     def __str__(self):
         return self.cargo_type

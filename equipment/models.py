@@ -12,6 +12,11 @@ class Equipment_Type(models.Model):
         return self.name
 
 
+STATUS_CHOICES=(
+    ('approved','APPROVED'),
+    ('pending','PENDING'),
+)
+
 # fields of equipment to be let
 class Let_Equipment(models.Model):
     equipment_type   = models.ForeignKey(Equipment_Type, models.SET_NULL, blank=True, null=True)
@@ -44,7 +49,7 @@ class Hire_Equipment(models.Model):
     price            = models.CharField(max_length=255)
     price_per        = models.CharField(max_length=255)
     nature_of_work   = models.TextField(blank=True, null=True) 
-    status           = models.CharField(max_length=255, default='pending') 
+    status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
     let_equipment    = models.ForeignKey(Let_Equipment, models.SET_NULL, blank=True, null=True)
 
@@ -81,7 +86,7 @@ class Buy_Equipment(models.Model):
     email            = models.CharField(max_length=255) 
     contact          = models.CharField(max_length=255)
     price_to_buy     = models.CharField(max_length=255)
-    status           = models.CharField(max_length=255, default='pending')
+    status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
     
     sell_equipment   = models.ForeignKey(Sell_Equipment, models.SET_NULL, blank=True, null=True)
 
