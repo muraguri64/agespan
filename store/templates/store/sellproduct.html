@@ -1,0 +1,65 @@
+{% extends 'base.html '%} {% load staticfiles %} 
+
+{% block mystyles %}
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+        FOR ERRORS
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+
+        <div class="card-wrapper">
+            <div class="brand">
+    
+            </div>
+            <div class="card fat">
+                <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="inputEmail">Your Name</label>
+                        <input type="text" id="inputName" class="form-control" name="seller_name" placeholder="Your Name" required autofocus>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="inputEmail">E-Mail</label>
+                        <input type="email" id="inputEmail" class="form-control" name="seller_email" placeholder="Email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputContact">Contact Number</label>
+                        <input type="text" id="inpuContact" class="form-control" name="seller_contact" placeholder="Enter Your Contact Details" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputProduct">Product Name</label>
+                        <input type="text" id="inputProduct" class="form-control" name="product_name" required>
+                    </div>
+    
+                    
+    
+                    
+    
+                    <div class="form-group no-margin">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Signup
+                    </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+          
+    </div>     
+  </div>
+</div>
+
+{% endblock %}
