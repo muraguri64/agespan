@@ -2,64 +2,156 @@
 
 {% block mystyles %}
 
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h2headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h2headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
 {% endblock %} 
 
 {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-        FOR ERRORS
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
 
-        <div class="card-wrapper">
-            <div class="brand">
-    
-            </div>
-            <div class="card fat">
-                <div class="card-body">
-                <form method="POST">
-                    {% csrf_token %}
-
-                    <div class="form-group">
-                        <label for="inputEmail">Your Name</label>
-                        <input type="text" id="inputName" class="form-control" name="seller_name" placeholder="Your Name" required autofocus>
-                    </div>
-    
-                    <div class="form-group">
-                        <label for="inputEmail">E-Mail</label>
-                        <input type="email" id="inputEmail" class="form-control" name="seller_email" placeholder="Email address" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputContact">Contact Number</label>
-                        <input type="text" id="inpuContact" class="form-control" name="seller_contact" placeholder="Enter Your Contact Details" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputProduct">Product Name</label>
-                        <input type="text" id="inputProduct" class="form-control" name="product_name" required>
-                    </div>
-    
-                    
-    
-                    
-    
-                    <div class="form-group no-margin">
-                    <button type="submit" class="btn btn-primary btn-block">
-                        Signup
-                    </button>
-                    </div>
-                </form>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="h2headline"><span class="head-line-center">Sell Product</span></h2>
         </div>
-          
-    </div>     
-  </div>
-</div>
+    </div><!--end of row class-->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>{{ form.errors }}</strong>
+                </div>
+            {%endif%}
+        </div>
+    </div><!--end of row class-->
+
+    <div class="row">
+        
+            <div class="col-sm-6">
+                <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-wrapper">
+                        <div class="brand"></div>
+                    <div class="card fat">
+                        <div class="card-body">
+                            
+
+                                <div class="form-group required">
+                                    <label for="seller_name" class="control-label">Name</label>
+                                    {{ form.seller_name }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="seller_email" class="control-label">Email</label>
+                                    {{ form.seller_email }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="seller_contact" class="control-label">Contact Number</label>
+                                    {{ form.seller_contact }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="product_name" class="control-label">Product Name</label>
+                                    {{ form.product_name }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="crop_type" class="control-label">Crop Type</label>
+                                    {{ form.crop_type }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="region" class="control-label">Region</label>
+                                    {{ form.region }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="nearest_town" class="control-label">Nearest Town</label>
+                                    {{ form.nearest_town }}
+                                </div>
+
+                                
+                                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>     
+            </div><!--end of col-sm-6-->
+
+            <div class="col-md-6">
+                    <div class="card-wrapper">
+                        <div class="brand"></div><!--end of brand-->
+                        <div class="card fat">
+                                <div class="card-body">
+
+                                    <div class="form-group required">
+                                        <label for="farm_size" class="control-label">Farm Size</label>
+                                        {{ form.farm_size }}
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="quantity" class="control-label">Quantity</label>
+                                        {{ form.quantity }}
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="units" class="control-label">Units</label>
+                                        {{ form.units }}
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="unit_price" class="control-label">Unit Price</label>
+                                        {{ form.unit_price }}
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="image" class="control-label">Image</label>
+                                        {{ form.image }}
+                                    </div>
+                                    <div class="form-group required">
+                                        <label for="description" class="control-label">Description</label>
+                                        {{ form.description }}
+                                    </div>                                          
+        
+        
+                                    <div class="form-group no-margin">
+                                        <button type="submit" class="btn btn-primary btn-block">
+                                            Submit
+                                        </button>
+                                    </div>
+
+                                </div><!--end of card-body-->
+                        </div><!--end of card fat-->
+                    </div><!--end of card-wrapper-->  
+                </form>      
+            </div><!--End of col-sm-6-->
+        
+    </div><!--end of row class-->
+</div><!--end of conatiner class-->
 
 {% endblock %}

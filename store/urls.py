@@ -1,10 +1,10 @@
 from django.urls import path, include, re_path
 
-from . import views
+from .views import sell_product_view
 
 
 urlpatterns = [
-    path('sellproduct/', views.sellproduct, name="sellproduct"),
+    path('sellproduct/', sell_product_view, name="sellproduct"),
 
 
     
