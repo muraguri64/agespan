@@ -8,6 +8,7 @@ class sell_Product_Form(forms.ModelForm):
 
     class Meta:
         model = Store_Product
+        exclude = ('user',)
 
         widgets = {
             'seller_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name', 'required': True}),
@@ -48,4 +49,5 @@ class sell_Product_Form(forms.ModelForm):
             'unit_price',
             'image',
             'description',
+            'user',
         ]

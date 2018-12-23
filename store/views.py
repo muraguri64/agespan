@@ -13,7 +13,10 @@ from .models import Store_Product, Order
 def sell_product_view(request):
     form = sell_Product_Form(request.POST or None, request.FILES or None)
     if form.is_valid():
-        form.save()
+        sellproduct = form.save(commit=False)
+        sellproduct.user = request.user
+        sellproduct.save()
+
         form = sell_Product_Form()
         messages.success(request, 'Product submitted successfuly')
 
