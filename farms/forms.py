@@ -19,7 +19,7 @@ class register_Farm_Form(forms.ModelForm):
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter specific Location of the farm', 'required': True}),
             'nearest_town': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Nearest Town', 'required': True}),
             'crop_grown': forms.Select(attrs={'class': 'form-control', 'required': True}),
-            'planting_date': forms.DateField(attrs={'class': 'form-control', 'required': True}),
+            'planting_date': forms.DateInput(format='%Y-%m-%d'),
             'owner_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name', 'required': True}),
             'owner_email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email Address', 'required': True}),
             'owner_contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Contact Details', 'required': True}),

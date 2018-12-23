@@ -6,8 +6,8 @@ from crops.models import Crop_Type
 # Create your models here.
 
 class Register_Farm(models.Model):
-    name          = models.CharField(max_length=255) 
-    size          = models.CharField(max_length=255)
+    farm_name     = models.CharField(max_length=255) 
+    farm_size     = models.CharField(max_length=255)
     location      = models.CharField(max_length=255)
     image         = models.ImageField(upload_to='images/farms')
     nearest_town  = models.CharField(max_length=255)
