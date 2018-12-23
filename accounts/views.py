@@ -18,7 +18,12 @@ def signup(request):
             return render(request,'accounts/signup.html',{'error':'Passwords must match!'})
     else:
         # user wats to enter info
-        return render(request,'accounts/signup.html')
+        if request.user.is_authenticated:
+            return redirect('home')
+        else:
+            return render(request,'accounts/signup.html')
+
+        
 
 
 
@@ -33,7 +38,11 @@ def login(request):
             return render(request,'accounts/login.html',{'error':'Email or Password is Incorrect!'})
 
     else:
-        return render(request,'accounts/login.html')
+        if request.user.is_authenticated:
+            return redirect('home')
+        else:
+            return render(request,'accounts/login.html')
+        
 
 
 def logout(request):
