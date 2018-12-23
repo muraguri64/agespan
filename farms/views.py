@@ -21,7 +21,6 @@ def register_farm_view(request):
 
         form = register_Farm_Form()
         messages.success(request, 'Farm registered successfuly!!')
-
         return redirect('register-farm')
 
     context = {

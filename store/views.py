@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -19,6 +19,7 @@ def sell_product_view(request):
 
         form = sell_Product_Form()
         messages.success(request, 'Product submitted successfuly!!')
+        return redirect('sellproduct')
 
     context = {
         'form': form
