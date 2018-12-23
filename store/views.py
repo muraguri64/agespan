@@ -18,7 +18,7 @@ def sell_product_view(request):
         sellproduct.save()
 
         form = sell_Product_Form()
-        messages.success(request, 'Product submitted successfuly')
+        messages.success(request, 'Product submitted successfuly!!')
 
     context = {
         'form': form
