@@ -22,3 +22,8 @@ def sell_product_view(request):
     }
 
     return render(request, 'store/sellproduct.html', context)
+
+
+def store_products_view(request):
+    products = Store_Product.objects
+    return render(request, 'store/storeproducts.html', {'products': products} )
