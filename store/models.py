@@ -28,7 +28,10 @@ class Store_Product(models.Model):
     image          = models.ImageField(upload_to='images/store')
     description    = models.TextField(blank=True, null=True)
 
-    user          = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
+    user           = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return 'Product ({}) - Quantiy ({} {}) - Unit Price ({}) - Farm Size ({}) '.format(self.product_name, self.quantity, self.units, self.unit_price, self.farm_size)
