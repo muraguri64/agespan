@@ -50,9 +50,25 @@
                         <li class="nav-item">
                             <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link 2</a>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if url_name == 'sellproduct' %}active {% elif url_name == 'store-products' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
+                                Store
+                            </a>
+
+                            <div class="dropdown-menu">
+                                {% if user.is_authenticated %}                                
+                                    <a class="dropdown-item {% if url_name == 'sellproduct' %}active{% endif %}" href="{% url 'sellproduct' %}">Sell Product</a> 
+                                    <a class="dropdown-item {% if url_name == 'store-products' %}active{% endif %}" href="{% url 'store-products' %}">View to Buy</a>                                                   
+
+                                {% else %} 
+                                    <a class="dropdown-item {% if url_name == 'store-products' %}active{% endif %}" href="{% url 'store-products' %}">View to Buy</a>                        
+                                {% endif %}
+                            </div>
+                            
                         </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link 3</a>
                         </li>
