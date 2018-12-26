@@ -22,6 +22,9 @@ class Register_Agronomist(models.Model):
 
     user              = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
         return self.agronomist_name
@@ -37,6 +40,9 @@ class Register_Agronomist_Request(models.Model):
     register_agronomist = models.ForeignKey(Register_Agronomist, models.SET_NULL, blank=True, null=True) 
     user                = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
     status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
@@ -56,6 +62,9 @@ class Request_Agronomist(models.Model):
 
     user              = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.requestor_name
 
@@ -70,6 +79,9 @@ class Request_Agronomist_Offer(models.Model):
     user                 = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
     request_agronomist   = models.ForeignKey(Request_Agronomist, models.SET_NULL, blank=True, null=True) 
     status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.offeror_name
