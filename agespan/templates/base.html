@@ -69,6 +69,24 @@
                         </li>
 
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if url_name == 'register-farm' %}active {% elif url_name == 'all-farms' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
+                                Farms
+                            </a>
+
+                            <div class="dropdown-menu">
+                                {% if user.is_authenticated %}                                
+                                    <a class="dropdown-item {% if url_name == 'all-farms' %}active{% endif %}" href="{% url 'all-farms' %}">View Farms</a> 
+                                    <a class="dropdown-item {% if url_name == 'register-farm' %}active{% endif %}" href="{% url 'register-farm' %}">Register Farm</a>                                                   
+
+                                {% else %} 
+                                    <a class="dropdown-item {% if url_name == 'register-farm' %}active{% endif %}" href="{% url 'register-farm' %}">Register Farm</a>                        
+                                {% endif %}
+                            </div>
+                            
+                        </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link 3</a>
                         </li>
