@@ -29,4 +29,4 @@ class Register_Farm(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.farm_name

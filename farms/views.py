@@ -29,3 +29,9 @@ def register_farm_view(request):
 
     return render(request, 'farms/registerfarm.html', context)
 
+
+def all_farms_view(request):
+    farms = Register_Farm.objects
+    return render(request, 'farms/allfarms.html', {'farms': farms} )
+
+
