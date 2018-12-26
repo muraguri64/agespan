@@ -1,0 +1,145 @@
+{% extends 'base.html '%} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h2headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h2headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="h2headline"><span class="head-line-center">Register Agronomist</span></h2>
+        </div>
+    </div><!--end of row class-->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>{{ form.errors }}</strong>
+                </div>
+            {%endif%}
+
+            {% if messages %}
+                <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </strong>
+                </div>
+            {%endif%}
+            
+        </div>
+    </div><!--end of row class-->
+
+    <div class="row">
+        
+            <div class="col-md-6">
+                <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-wrapper">
+                        <div class="brand"></div>
+                    <div class="card fat">
+                        <div class="card-body">
+
+                            <div class="form-group required">
+                                <label for="agronomist_name" class="control-label">Agronomist Name</label>
+                                {{ form.agronomist_name }}
+                            </div>
+
+                            <div class="form-group required">
+                                <label for="agronomist_email" class="control-label">Agronomist Email</label>
+                                {{ form.agronomist_email }}
+                            </div>
+
+                            <div class="form-group required">
+                                <label for="agronomist_contact" class="control-label">Agronomist Contact</label>
+                                {{ form.agronomist_contact }}
+                            </div> 
+
+
+                            <div class="form-group required">
+                                <label for="region" class="control-label">Region</label>
+                                {{ form.region }}
+                            </div>
+
+                            <div class="form-group required">
+                                <label for="crop_type" class="control-label">Crop Type</label>
+                                {{ form.crop_type }}
+                            </div>
+                            
+
+                                                                  
+                            
+                        </div>
+                    </div>
+                    
+                </div>     
+            </div><!--end of col-sm-6-->
+
+            <div class="col-md-6">
+                    <div class="card-wrapper">
+                        <div class="brand"></div><!--end of brand-->
+                        <div class="card fat">
+                                <div class="card-body">
+
+                                    <div class="form-group required">
+                                        <label for="profile" class="control-label">Profile/Achievements</label>
+                                        {{ form.profile }}
+                                    </div>    
+            
+            
+                                    <div class="form-group required">
+                                        <label for="advice" class="control-label">Contribution/Advice</label>
+                                        {{ form.advice }}
+                                    </div>                                                                                                                       
+        
+        
+                                    <div class="form-group no-margin">
+                                        <button type="submit" class="btn btn-primary btn-block">
+                                            Submit
+                                        </button>
+                                    </div>
+
+                                </div><!--end of card-body-->
+                        </div><!--end of card fat-->
+                    </div><!--end of card-wrapper-->  
+                </form>      
+            </div><!--End of col-sm-6-->
+        
+    </div><!--end of row class-->
+</div><!--end of conatiner class-->
+
+{% endblock %}

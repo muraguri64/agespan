@@ -40,6 +40,8 @@ urlpatterns = [
     path('store/', include('store.urls') ),
     path('farms/', include('farms.urls')),
     path('agrovets/', include('agrovets.urls')),
+    path('agronomist/', include('agronomist.urls')),
+
     
 
     
