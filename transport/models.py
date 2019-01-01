@@ -24,6 +24,8 @@ class Request_Transport(models.Model):
     
     user              = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.requestor_name
@@ -42,6 +44,9 @@ class Request_Transport_Offer(models.Model):
     user                 = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
     request_transport    = models.ForeignKey(Request_Transport, models.SET_NULL, blank=True, null=True) 
     status               = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.vehicle_number_plate
@@ -62,6 +67,9 @@ class Offer_Transport(models.Model):
 
     user                 = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.vehicle_number_plate
 
@@ -81,6 +89,9 @@ class Offer_Transport_Request(models.Model):
     user              = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
     offer_transport   = models.ForeignKey(Offer_Transport, models.SET_NULL, blank=True, null=True) 
     status            = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.cargo_type
