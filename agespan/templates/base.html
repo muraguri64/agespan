@@ -106,6 +106,27 @@
                             
                         </li>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if url_name == 'register-agronomist' %}active {% elif url_name == 'all-agronomists' %} active {% elif url_name == 'request-agronomist' %} active {% elif url_name == 'all-requested-agronomists' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
+                                Agronomists
+                            </a>
+
+                            <div class="dropdown-menu">
+                                {% if user.is_authenticated %}                                   
+                                    <a class="dropdown-item {% if url_name == 'register-agronomist' %}active{% endif %}" href="{% url 'register-agronomist' %}">Register Agronomist</a> 
+                                    <a class="dropdown-item {% if url_name == 'all-agronomists' %}active{% endif %}" href="{% url 'all-agronomists' %}">All Agronomists</a> 
+                                    <a class="dropdown-item {% if url_name == 'request-agronomist' %}active{% endif %}" href="{% url 'request-agronomist' %}">Request Agronomist</a> 
+                                    <a class="dropdown-item {% if url_name == 'all-requested-agronomists' %}active{% endif %}" href="{% url 'all-requested-agronomists' %}">All Requests</a>                                                     
+
+                                {% else %} 
+                                    <a class="dropdown-item {% if url_name == 'all-agronomists' %}active{% endif %}" href="{% url 'all-agronomists' %}">All Agronomists</a> 
+                                    <a class="dropdown-item {% if url_name == 'all-requested-agronomists' %}active{% endif %}" href="{% url 'all-requested-agronomists' %}">All Requests</a>                         
+                                {% endif %}
+                            </div>
+                            
+                        </li>
+
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link 3</a>
