@@ -1,0 +1,147 @@
+{% extends 'base.html '%} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h2headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h2headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="h2headline"><span class="head-line-center">Offer Transport</span></h2>
+        </div>
+    </div><!--end of row class-->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            {% if form.errors %}
+                <div class="alert alert-danger alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>{{ form.errors }}</strong>
+                </div>
+            {%endif%}
+
+            {% if messages %}
+                <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </strong>
+                </div>
+            {%endif%}
+            
+        </div>
+    </div><!--end of row class-->
+
+    <div class="row">
+        
+            <div class="col-md-6">
+                <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-wrapper">
+                        <div class="brand"></div>
+                    <div class="card fat">
+                        <div class="card-body">
+
+                                <div class="form-group required">
+                                    <label for="vehicle_number_plate" class="control-label">Vehicle Number Plate</label>
+                                    {{ form.vehicle_number_plate }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="vehicle_make" class="control-label">Vehicle Make</label>
+                                    {{ form.vehicle_make }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="vehicle_image" class="control-label">Vehicle Image</label>
+                                    {{ form.vehicle_image }}
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="preferred_cargo" class="control-label">Preferred Cargo</label>
+                                    {{ form.preferred_cargo }}
+                                </div> 
+                                                                         
+                            
+                        </div>
+                    </div>
+                    
+                </div>     
+            </div><!--end of col-sm-6-->
+
+            <div class="col-md-6">
+                    <div class="card-wrapper">
+                        <div class="brand"></div><!--end of brand-->
+                        <div class="card fat">
+                                <div class="card-body">
+
+                                    <div class="form-group required">
+                                        <label for="charges_per_km" class="control-label">Charges Per Km</label>
+                                        {{ form.charges_per_km }}
+                                    </div>  
+                                    
+
+                                    <div class="form-group required">
+                                            <label for="offeror_name" class="control-label">Offeror Name</label>
+                                            {{ form.offeror_name }}
+                                    </div>
+
+                                    <div class="form-group required">
+                                        <label for="offeror_email" class="control-label">Offeror Email</label>
+                                        {{ form.offeror_email }}
+                                    </div>
+    
+                                    <div class="form-group required">
+                                        <label for="offeror_contact" class="control-label">Offeror Contact</label>
+                                        {{ form.offeror_contact }}
+                                    </div>                                                                                
+        
+        
+                                    <div class="form-group no-margin">
+                                        <button type="submit" class="btn btn-primary btn-block">
+                                            Submit
+                                        </button>
+                                    </div>
+
+                                </div><!--end of card-body-->
+                        </div><!--end of card fat-->
+                    </div><!--end of card-wrapper-->  
+                </form>      
+            </div><!--End of col-sm-6-->
+        
+    </div><!--end of row class-->
+</div><!--end of conatiner class-->
+
+{% endblock %}

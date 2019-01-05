@@ -1,0 +1,71 @@
+{% extends 'base.html '%} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h2headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h2headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="h2headline"><span class="head-line-center">Cargo</span></h2>
+        </div>
+    </div><!--end of row class-->
+
+
+    <div class="row">
+        <div class="col-md-12">
+           <div class="card-columns">
+
+                {% for transport_request in transport_requests.all %}
+                    <div class="card">
+                        <div class="card-header">{{ transport_request.cargo_type }}</div>
+                        <div class="card-body">
+                          <p class="card-text"><b>Quantity: </b> {{ transport_request.quantity }} tonnes</p>
+                          <p class="card-text"><b>From: </b> {{ transport_request.start_location }}</p>
+                          <p class="card-text"><b>To: </b> Ksh {{ transport_request.end_location }}</p>
+                          <p class="card-text"><b>Posted On: </b> {{ transport_request.created_at }}</p>
+                        </div>
+                        <div class="card-footer">
+                                <a href="#" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+           </div>
+            
+        </div>
+    </div><!--end of row class-->
+
+   
+</div><!--end of conatiner class-->
+
+{% endblock %}

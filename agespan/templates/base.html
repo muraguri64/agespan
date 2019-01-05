@@ -45,7 +45,7 @@
         </nav>
         <nav class="navbar p-0 navbar-expand-md navbar-light bg-dark">
             <div class="collapse navbar-collapse bg-light px-3" id="navbarContent">
-                <ul class="navbar-nav mx-md-auto mx-0 w-50 align-items-start nav-fill">
+                <ul class="navbar-nav mx-md-auto mx-0 w-70 align-items-start nav-fill">
                     {% with url_name=request.resolver_match.url_name %}
                         <li class="nav-item">
                             <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
@@ -63,6 +63,26 @@
 
                                 {% else %} 
                                     <a class="dropdown-item {% if url_name == 'store-products' %}active{% endif %}" href="{% url 'store-products' %}">View to Buy</a>                        
+                                {% endif %}
+                            </div>
+                            
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if url_name == 'request-transport' %}active {% elif url_name == 'all-transport-requests' %} active {% elif url_name == 'offer-transport' %} active {% elif url_name == 'all-transport-offers' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
+                                Transport
+                            </a>
+
+                            <div class="dropdown-menu">
+                                {% if user.is_authenticated %}                                   
+                                    <a class="dropdown-item {% if url_name == 'all-transport-requests' %}active{% endif %}" href="{% url 'all-transport-requests' %}">All Requests</a> 
+                                    <a class="dropdown-item {% if url_name == 'all-transport-offers' %}active{% endif %}" href="{% url 'all-transport-offers' %}">All Offers</a> 
+                                    <a class="dropdown-item {% if url_name == 'request-transport' %}active{% endif %}" href="{% url 'request-transport' %}">Request Transport</a> 
+                                    <a class="dropdown-item {% if url_name == 'offer-transport' %}active{% endif %}" href="{% url 'offer-transport' %}">Offer Transport</a>                                                     
+
+                                {% else %} 
+                                    <a class="dropdown-item {% if url_name == 'all-transport-requests' %}active{% endif %}" href="{% url 'all-transport-requests' %}">All Requests</a> 
+                                    <a class="dropdown-item {% if url_name == 'all-transport-offers' %}active{% endif %}" href="{% url 'all-transport-offers' %}">All Offers</a>                         
                                 {% endif %}
                             </div>
                             
@@ -126,14 +146,6 @@
                             
                         </li>
 
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link 3</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link 4</a>
-                        </li>
                         
 
                         <li class="nav-item dropdown">
