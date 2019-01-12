@@ -42,3 +42,45 @@ class let_Equipment_Form(forms.ModelForm):
             'user',
         ]
 
+
+class sell_Equipment_Form(forms.ModelForm):
+
+    class Meta:
+        model = Sell_Equipment
+        exclude = ('user',)
+
+        widgets = {   
+
+            'equipment_type': forms.Select(attrs={'class': 'form-control', 'required': True}), 
+            'equipment_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Equipment Name', 'required': True}),
+            'manufacture_year': forms.DateInput(format='%Y-%m-%d'),
+            
+            'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'current_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Current Location', 'required': True}),
+            'price_range_from': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter Price Range From', 'required': True}),
+            'price_range_to': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter Price Range To', 'required': True}),
+            'owner_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Owner Name', 'required': True}),
+            'owner_email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Owner Email Address', 'required': True}),
+            'owner_contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Owner Contact Details', 'required': True}),
+                               
+
+        }
+
+        fields = [            
+    
+            'equipment_type',
+            'equipment_name',
+            'manufacture_year',
+            'region',
+            'current_location',
+            'image',
+            'price_range_from',
+            'price_range_To',
+            'owner_name',
+            'owner_email',
+            'owner_contact',
+            'user',
+        ]
+
+
+
