@@ -17,6 +17,11 @@ STATUS_CHOICES=(
     ('pending','PENDING'),
 )
 
+PRICE_PER_CHOICES=(
+    ('hr','HR'),
+    ('acre','ACRE'),
+)
+
 # fields of equipment to be let
 class Let_Equipment(models.Model):
     equipment_type   = models.ForeignKey(Equipment_Type, models.SET_NULL, blank=True, null=True)
@@ -28,7 +33,7 @@ class Let_Equipment(models.Model):
     image            = models.ImageField(upload_to='images/let/equipment', blank=True, null=True)
 
     price            = models.CharField(max_length=255)
-    price_per        = models.CharField(max_length=255)
+    price_per        = models.CharField(max_length=255, choices=PRICE_PER_CHOICES, default='hr')
     owner_name       = models.CharField(max_length=255) 
     owner_email      = models.CharField(max_length=255) 
     owner_contact    = models.CharField(max_length=255)
