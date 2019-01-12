@@ -35,6 +35,9 @@ class Let_Equipment(models.Model):
 
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} - {}'.format(self.equipment_name, self.equipment_type)
 
@@ -52,6 +55,9 @@ class Hire_Equipment(models.Model):
     status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
     let_equipment    = models.ForeignKey(Let_Equipment, models.SET_NULL, blank=True, null=True)
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.let_equipment)
@@ -76,6 +82,9 @@ class Sell_Equipment(models.Model):
 
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} - {}'.format(self.equipment_name, self.equipment_type)
 
@@ -89,6 +98,9 @@ class Buy_Equipment(models.Model):
     status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
     
     sell_equipment   = models.ForeignKey(Sell_Equipment, models.SET_NULL, blank=True, null=True)
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.sell_equipment)
