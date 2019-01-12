@@ -42,6 +42,7 @@ urlpatterns = [
     path('agrovets/', include('agrovets.urls')),
     path('agronomist/', include('agronomist.urls')),
     path('transport/', include('transport.urls')),
+    path('equipment/', include('equipment.urls')),
 
     
 
