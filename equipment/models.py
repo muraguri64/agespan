@@ -55,7 +55,7 @@ class Hire_Equipment(models.Model):
     farm_size        = models.CharField(max_length=255)
     farm_location    = models.CharField(max_length=255)
     price            = models.CharField(max_length=255)
-    price_per        = models.CharField(max_length=255)
+    price_per        = models.CharField(max_length=255, choices=PRICE_PER_CHOICES, default='hr')
     nature_of_work   = models.TextField(blank=True, null=True) 
     status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
