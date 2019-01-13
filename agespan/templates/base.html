@@ -56,14 +56,9 @@
                                 Store
                             </a>
 
-                            <div class="dropdown-menu">
-                                {% if user.is_authenticated %}                                
-                                    <a class="dropdown-item {% if url_name == 'sellproduct' %}active{% endif %}" href="{% url 'sellproduct' %}">Sell Product</a> 
-                                    <a class="dropdown-item {% if url_name == 'store-products' %}active{% endif %}" href="{% url 'store-products' %}">View to Buy</a>                                                   
-
-                                {% else %} 
-                                    <a class="dropdown-item {% if url_name == 'store-products' %}active{% endif %}" href="{% url 'store-products' %}">View to Buy</a>                        
-                                {% endif %}
+                            <div class="dropdown-menu">                                                              
+                                <a class="dropdown-item {% if url_name == 'sellproduct' %}active{% endif %}" href="{% url 'sellproduct' %}">Sell Product</a> 
+                                <a class="dropdown-item {% if url_name == 'store-products' %}active{% endif %}" href="{% url 'store-products' %}">View to Buy</a>                                                   
                             </div>
                             
                         </li>
@@ -73,19 +68,13 @@
                                 Transport
                             </a>
 
-                            <div class="dropdown-menu">
-                                {% if user.is_authenticated %}                                   
-                                    <a class="dropdown-item {% if url_name == 'all-transport-requests' %}active{% endif %}" href="{% url 'all-transport-requests' %}">All Requests</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-transport-offers' %}active{% endif %}" href="{% url 'all-transport-offers' %}">All Offers</a> 
-                                    <a class="dropdown-item {% if url_name == 'request-transport' %}active{% endif %}" href="{% url 'request-transport' %}">Request Transport</a> 
-                                    <a class="dropdown-item {% if url_name == 'offer-transport' %}active{% endif %}" href="{% url 'offer-transport' %}">Offer Transport</a>                                                     
-
-                                {% else %} 
-                                    <a class="dropdown-item {% if url_name == 'all-transport-requests' %}active{% endif %}" href="{% url 'all-transport-requests' %}">All Requests</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-transport-offers' %}active{% endif %}" href="{% url 'all-transport-offers' %}">All Offers</a>                         
-                                {% endif %}
-                            </div>
-                            
+                            <div class="dropdown-menu">                                                                   
+                                <a class="dropdown-item {% if url_name == 'all-transport-requests' %}active{% endif %}" href="{% url 'all-transport-requests' %}">All Requests</a> 
+                                <a class="dropdown-item {% if url_name == 'all-transport-offers' %}active{% endif %}" href="{% url 'all-transport-offers' %}">All Offers</a> 
+                                <a class="dropdown-item {% if url_name == 'request-transport' %}active{% endif %}" href="{% url 'request-transport' %}">Request Transport</a> 
+                                <a class="dropdown-item {% if url_name == 'offer-transport' %}active{% endif %}" href="{% url 'offer-transport' %}">Offer Transport</a>                                                     
+                            </div> 
+                                                        
                         </li>
 
 
@@ -94,16 +83,11 @@
                                 Farms
                             </a>
 
-                            <div class="dropdown-menu">
-                                {% if user.is_authenticated %}                                
-                                    <a class="dropdown-item {% if url_name == 'all-farms' %}active{% endif %}" href="{% url 'all-farms' %}">View Farms</a> 
-                                    <a class="dropdown-item {% if url_name == 'register-farm' %}active{% endif %}" href="{% url 'register-farm' %}">Register Farm</a>                                                   
-
-                                {% else %} 
-                                <a class="dropdown-item {% if url_name == 'all-farms' %}active{% endif %}" href="{% url 'all-farms' %}">View Farms</a>                        
-                                {% endif %}
+                            <div class="dropdown-menu">                                                        
+                                <a class="dropdown-item {% if url_name == 'all-farms' %}active{% endif %}" href="{% url 'all-farms' %}">View Farms</a> 
+                                <a class="dropdown-item {% if url_name == 'register-farm' %}active{% endif %}" href="{% url 'register-farm' %}">Register Farm</a>                                                   
                             </div>
-                            
+                                                        
                         </li>
 
                         <li class="nav-item dropdown">
@@ -111,19 +95,12 @@
                                 Agrovets
                             </a>
 
-                            <div class="dropdown-menu">
-                                {% if user.is_authenticated %}                                   
-                                    <a class="dropdown-item {% if url_name == 'register-agrovet' %}active{% endif %}" href="{% url 'register-agrovet' %}">Register Agrovet</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-agrovets' %}active{% endif %}" href="{% url 'all-agrovets' %}">View Agrovets</a> 
-                                    <a class="dropdown-item {% if url_name == 'request-product' %}active{% endif %}" href="{% url 'request-product' %}">Request Product</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-requested-products' %}active{% endif %}" href="{% url 'all-requested-products' %}">Requested Products</a>                                                     
-
-                                {% else %} 
-                                    <a class="dropdown-item {% if url_name == 'all-agrovets' %}active{% endif %}" href="{% url 'all-agrovets' %}">View Agrovets</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-requested-products' %}active{% endif %}" href="{% url 'all-requested-products' %}">Requested Products</a>                         
-                                {% endif %}
-                            </div>
-                            
+                            <div class="dropdown-menu">                                                                   
+                                <a class="dropdown-item {% if url_name == 'register-agrovet' %}active{% endif %}" href="{% url 'register-agrovet' %}">Register Agrovet</a> 
+                                <a class="dropdown-item {% if url_name == 'all-agrovets' %}active{% endif %}" href="{% url 'all-agrovets' %}">View Agrovets</a> 
+                                <a class="dropdown-item {% if url_name == 'request-product' %}active{% endif %}" href="{% url 'request-product' %}">Request Product</a> 
+                                <a class="dropdown-item {% if url_name == 'all-requested-products' %}active{% endif %}" href="{% url 'all-requested-products' %}">Requested Products</a>                                                     
+                            </div>                           
                         </li>
 
                         <li class="nav-item dropdown">
@@ -131,18 +108,12 @@
                                 Agronomists
                             </a>
 
-                            <div class="dropdown-menu">
-                                {% if user.is_authenticated %}                                   
-                                    <a class="dropdown-item {% if url_name == 'register-agronomist' %}active{% endif %}" href="{% url 'register-agronomist' %}">Register Agronomist</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-agronomists' %}active{% endif %}" href="{% url 'all-agronomists' %}">All Agronomists</a> 
-                                    <a class="dropdown-item {% if url_name == 'request-agronomist' %}active{% endif %}" href="{% url 'request-agronomist' %}">Request Agronomist</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-requested-agronomists' %}active{% endif %}" href="{% url 'all-requested-agronomists' %}">All Requests</a>                                                     
-
-                                {% else %} 
-                                    <a class="dropdown-item {% if url_name == 'all-agronomists' %}active{% endif %}" href="{% url 'all-agronomists' %}">All Agronomists</a> 
-                                    <a class="dropdown-item {% if url_name == 'all-requested-agronomists' %}active{% endif %}" href="{% url 'all-requested-agronomists' %}">All Requests</a>                         
-                                {% endif %}
-                            </div>
+                            <div class="dropdown-menu">                                                                  
+                                <a class="dropdown-item {% if url_name == 'register-agronomist' %}active{% endif %}" href="{% url 'register-agronomist' %}">Register Agronomist</a> 
+                                <a class="dropdown-item {% if url_name == 'all-agronomists' %}active{% endif %}" href="{% url 'all-agronomists' %}">All Agronomists</a> 
+                                <a class="dropdown-item {% if url_name == 'request-agronomist' %}active{% endif %}" href="{% url 'request-agronomist' %}">Request Agronomist</a> 
+                                <a class="dropdown-item {% if url_name == 'all-requested-agronomists' %}active{% endif %}" href="{% url 'all-requested-agronomists' %}">All Requests</a>                                                     
+                            </div>                   
                             
                         </li>
 
