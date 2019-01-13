@@ -18,8 +18,8 @@ STATUS_CHOICES=(
 )
 
 PRICE_PER_CHOICES=(
-    ('hr','HR'),
-    ('acre','ACRE'),
+    ('hr','hr'),
+    ('acre','hr'),
 )
 
 # fields of equipment to be let

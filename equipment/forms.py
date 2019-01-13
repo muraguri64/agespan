@@ -13,7 +13,7 @@ class let_Equipment_Form(forms.ModelForm):
 
             'equipment_type': forms.Select(attrs={'class': 'form-control', 'required': True}), 
             'equipment_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Equipment Name', 'required': True}),
-            'manufacture_year': forms.DateInput(format='%Y-%m-%d'),
+            'manufacture_year': forms.DateInput(format='%Y-%m-%d', attrs={'class': 'form-control', 'placeholder': 'YY-MM-DD', 'required': True}),
             
             'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
             'current_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Current Location', 'required': True}),
@@ -53,7 +53,7 @@ class sell_Equipment_Form(forms.ModelForm):
 
             'equipment_type': forms.Select(attrs={'class': 'form-control', 'required': True}), 
             'equipment_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Equipment Name', 'required': True}),
-            'manufacture_year': forms.DateInput(format='%Y-%m-%d'),
+            'manufacture_year': forms.DateInput(format='%Y-%m-%d', attrs={'class': 'form-control', 'placeholder': 'YY-MM-DD', 'required': True}),
             
             'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
             'current_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Current Location', 'required': True}),
@@ -75,7 +75,7 @@ class sell_Equipment_Form(forms.ModelForm):
             'current_location',
             'image',
             'price_range_from',
-            'price_range_To',
+            'price_range_to',
             'owner_name',
             'owner_email',
             'owner_contact',
