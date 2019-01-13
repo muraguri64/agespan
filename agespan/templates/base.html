@@ -146,6 +146,19 @@
                             
                         </li>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if url_name == 'let-equipment' %}active {% elif url_name == 'sell-equipment' %} active {% elif url_name == 'all-let-equipments' %} active {% elif url_name == 'all-sell-equipments' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
+                                Equipment
+                            </a>
+
+                            <div class="dropdown-menu">                                  
+                                <a class="dropdown-item {% if url_name == 'let-equipment' %}active{% endif %}" href="{% url 'register-agronomist' %}">Let Equipment</a> 
+                                <a class="dropdown-item {% if url_name == 'all-let-equipments' %}active{% endif %}" href="{% url 'all-let-equipments' %}">View To Hire</a> 
+                                <a class="dropdown-item {% if url_name == 'sell-equipment' %}active{% endif %}" href="{% url 'sell-equipment' %}">Sell Equipment</a> 
+                                <a class="dropdown-item {% if url_name == 'all-sell-equipments' %}active{% endif %}" href="{% url 'all-sell-equipments' %}">View To Buy</a>                                                     
+                            </div>                            
+                        </li>
+
                         
 
                         <li class="nav-item dropdown">
