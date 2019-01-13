@@ -16,9 +16,9 @@ def request_transport_view(request):
 
     form = request_Transport_Form(request.POST or None, request.FILES or None)
     if form.is_valid():
-        request_tranport        = form.save(commit=False)
-        request_tranport.user   = request.user
-        request_tranport.save()
+        request_transport        = form.save(commit=False)
+        request_transport.user   = request.user
+        request_transport.save()
 
         form = request_Transport_Form()
         messages.success(request, 'Request Submitted successfuly!!')
@@ -32,7 +32,7 @@ def request_transport_view(request):
 
 
 @login_required(login_url="/accounts/login/")
-def offer_tranport_view(request):  
+def offer_transport_view(request):  
 
     form = offer_Transport_Form(request.POST or None, request.FILES or None)
     if form.is_valid():
