@@ -17,6 +17,9 @@ class Event(models.Model):
     organizer_email   = models.CharField(max_length=255)
     organizer_contact = models.CharField(max_length=255)
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     user          = models.ForeignKey(User, models.SET_NULL, blank=True, null=True) 
 
   

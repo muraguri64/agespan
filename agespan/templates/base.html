@@ -134,6 +134,19 @@
                             </div>                            
                         </li>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if url_name == 'post-event' %}active {% elif url_name == 'previous-events' %} active {% elif url_name == 'upcoming-events' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
+                                Events
+                            </a>
+
+                            <div class="dropdown-menu">                                                        
+                                <a class="dropdown-item {% if url_name == 'post-event' %}active{% endif %}" href="{% url 'post-event' %}">Post Event</a> 
+                                <a class="dropdown-item {% if url_name == 'previous-events' %}active{% endif %}" href="{% url 'previous-events' %}">Previous Events</a>
+                                <a class="dropdown-item {% if url_name == 'upcoming-events' %}active{% endif %}" href="{% url 'upcoming-events' %}">Upcoming Events</a>                                                   
+                            </div>
+                                                        
+                        </li>
+
                         
 
                         <li class="nav-item dropdown">

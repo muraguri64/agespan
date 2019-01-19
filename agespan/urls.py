@@ -44,6 +44,7 @@ urlpatterns = [
     path('transport/', include('transport.urls')),
     path('equipment/', include('equipment.urls')),
     path('crops/', include('crops.urls')),
+    path('events/', include('events.urls')),
     
 
     
