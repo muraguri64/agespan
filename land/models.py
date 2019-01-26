@@ -45,6 +45,9 @@ class Let_Land(models.Model):
 
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} - {} ({})'.format(self.owner_name, self.region, self.available)
 
@@ -62,6 +65,9 @@ class Lease_Let_Land(models.Model):
 
     let_land         = models.ForeignKey(Let_Land, models.SET_NULL, blank=True, null=True)
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.let_land)
@@ -84,6 +90,9 @@ class Request_To_Lease(models.Model):
 
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.region)
 
@@ -101,6 +110,9 @@ class Request_To_Lease_Offer(models.Model):
 
     Request_to_lease = models.ForeignKey(Request_To_Lease, models.SET_NULL, blank=True, null=True)
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.status)
@@ -123,6 +135,9 @@ class Sell_Land(models.Model):
 
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} - ({}) '.format(self.land_size, self.available)
 
@@ -138,6 +153,9 @@ class Buy_Land(models.Model):
 
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)    
     sell_land        = models.ForeignKey(Sell_Land, models.SET_NULL, blank=True, null=True)
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.status)
@@ -161,6 +179,9 @@ class Request_To_Buy(models.Model):
 
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
 
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.region)
 
@@ -178,6 +199,9 @@ class Request_To_Buy_Offer(models.Model):
 
     request_to_buy   = models.ForeignKey(Request_To_Buy, models.SET_NULL, blank=True, null=True)
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
+
+    created_at     = models.DateTimeField(auto_now_add=True)
+    updated_at     = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} - {} - {}'.format(self.name, self.contact, self.status)
