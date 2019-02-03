@@ -108,7 +108,7 @@ class Request_To_Lease_Offer(models.Model):
 
     status           = models.CharField(max_length=255, choices=STATUS_CHOICES, default='pending') 
 
-    Request_to_lease = models.ForeignKey(Request_To_Lease, models.SET_NULL, blank=True, null=True)
+    request_to_lease = models.ForeignKey(Request_To_Lease, models.SET_NULL, blank=True, null=True)
     user             = models.ForeignKey(User, models.SET_NULL, blank=True, null=True)
 
     created_at     = models.DateTimeField(auto_now_add=True)
