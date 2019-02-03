@@ -11,7 +11,7 @@ class let_Land_Form(forms.ModelForm):
 
         widgets = {   
 
-            'land_size': forms.Select(attrs={'class': 'form-control', 'required': True}),                        
+            'land_size': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter land size', 'required': True}),                        
             'crop_grown': forms.Select(attrs={'class': 'form-control', 'required': True}),
             'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Location', 'required': True}),
@@ -21,7 +21,7 @@ class let_Land_Form(forms.ModelForm):
             'water_source': forms.Select(attrs={'class': 'form-control', 'required': True}), 
             'lease_period': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Lease Period', 'required': True}),
             
-            'price_per': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),
             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
             'owner_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Owner Name', 'required': True}),
             'owner_email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Owner Email Address', 'required': True}),
@@ -61,7 +61,7 @@ class lease_Let_Land_Form(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address', 'required': True}),
             'contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Details', 'required': True}),
             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
-            'price_per': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),
             'lease_period': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Lease Period', 'required': True}),
             'crop_to_grow': forms.Select(attrs={'class': 'form-control', 'required': True}),
                                
@@ -92,14 +92,13 @@ class request_To_Lease_Form(forms.ModelForm):
         widgets = { 
 
             'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
-            'land_size': forms.Select(attrs={'class': 'form-control', 'required': True}),                        
-            'crop_grown': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'land_size': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter land size', 'required': True}),
             
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Location', 'required': True}),
             'nearest_town': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Nearest Town', 'required': True}),
             'lease_period': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Lease Period', 'required': True}),
             
-            'price_per': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),
             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name', 'required': True}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address', 'required': True}),
@@ -111,9 +110,7 @@ class request_To_Lease_Form(forms.ModelForm):
         fields = [            
             
             'region',
-            'land_size',
-            'crop_grown',
-            
+            'land_size',            
             'location',
             'nearest_town',
             'lease_period',
@@ -141,7 +138,7 @@ class request_To_Lease_Offer_Form(forms.ModelForm):
             'contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Details', 'required': True}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Location', 'required': True}),
             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
-            'price_per': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),
             
                                
 
@@ -172,12 +169,12 @@ class sell_Land_Form(forms.ModelForm):
 
         widgets = { 
 
-            'land_size': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'land_size': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter land size', 'required': True}),
             'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
             'specific_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Location', 'required': True}),
             'nearest_town': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Nearest Town', 'required': True}),                        
             'price_range': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
-            'price_per': forms.Select(attrs={'class': 'form-control', 'required': True}),           
+            'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),          
             
             'owner_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name', 'required': True}),
             'owner_email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address', 'required': True}),
@@ -210,7 +207,7 @@ class buy_Land_Form(forms.ModelForm):
             
             'contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Details', 'required': True}),
             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
-            'price_per': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name', 'required': True}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address', 'required': True}),
             
@@ -240,11 +237,11 @@ class request_To_Buy_Form(forms.ModelForm):
         widgets = { 
 
             'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
-            'land_size': forms.Select(attrs={'class': 'form-control', 'required': True}),                       
+            'land_size': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter land size', 'required': True}),                       
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Location', 'required': True}),
             'nearest_town': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Nearest Town', 'required': True}),
             'price_range': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),          
-            'price_range_per': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'price_range_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),
             
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name', 'required': True}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address', 'required': True}),
@@ -282,7 +279,7 @@ class request_To_Buy_Offer_Form(forms.ModelForm):
             'contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Details', 'required': True}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Location', 'required': True}),
             'price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
-            'price_per': forms.Select(attrs={'class': 'form-control', 'required': True}),
+            'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),
             
                                
 
