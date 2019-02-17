@@ -171,7 +171,7 @@ class sell_Land_Form(forms.ModelForm):
 
             'land_size': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter land size', 'required': True}),
             'region': forms.Select(attrs={'class': 'form-control', 'required': True}),
-            'specific_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Location', 'required': True}),
+            'specific_location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Specific Location', 'required': True}),
             'nearest_town': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Nearest Town', 'required': True}),                        
             'price_range': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price in Ksh', 'required': True}),
             'price_per': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Price Per', 'required': True}),          
