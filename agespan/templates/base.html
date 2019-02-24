@@ -122,6 +122,19 @@
                         </li>
 
                         <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if url_name == 'lease' %}active {% elif url_name == 'let' %} active {% elif url_name == 'sell' %} active {% elif url_name == 'buy' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
+                                Land
+                            </a>
+
+                            <div class="dropdown-menu">                                  
+                                <a class="dropdown-item {% if url_name == 'lease' %}active{% endif %}" href="{% url 'lease' %}">Lease</a> 
+                                <a class="dropdown-item {% if url_name == 'let' %}active{% endif %}" href="{% url 'let' %}">Let</a> 
+                                <a class="dropdown-item {% if url_name == 'sell' %}active{% endif %}" href="{% url 'sell' %}">Sell</a> 
+                                <a class="dropdown-item {% if url_name == 'buy' %}active{% endif %}" href="{% url 'buy' %}">Buy</a>                                                     
+                            </div>                            
+                        </li>
+
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle {% if url_name == 'let-equipment' %}active {% elif url_name == 'sell-equipment' %} active {% elif url_name == 'all-let-equipments' %} active {% elif url_name == 'all-sell-equipments' %} active {% endif %}" href="#" id="navbardrop" data-toggle="dropdown">
                                 Equipment
                             </a>
