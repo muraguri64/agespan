@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'agronomist',
     'agrovets',
     'land',
+    'market',
 ]
 
 MIDDLEWARE = [
