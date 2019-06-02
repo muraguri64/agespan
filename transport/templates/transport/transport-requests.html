@@ -55,7 +55,7 @@
                           <p class="card-text"><b>Posted On: </b> {{ transport_request.created_at }}</p>
                         </div>
                         <div class="card-footer">
-                                <a href="#" class="btn btn-primary">View</a>
+                                <a href="{% url 'transport_request_detail' transport_request.id %}" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 {% endfor %}

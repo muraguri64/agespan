@@ -1,0 +1,66 @@
+
+{% extends 'base.html '%} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h3headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h3headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 id="h3headline"><span class="head-line-center">{{ transport_request.cargo_type }}</span></h3>
+        </div>
+    </div><!--end of row class-->    
+
+    <div class="row">
+        <div class="col-md-12">           
+                
+                <div class="request_detail">                   
+            
+                    <div class="detail_body">
+                        <div><b>Quantity: </b>{{ transport_request.quantity_in_tones}} tonnes </div>
+                        <div><b>From: </b> {{ transport_request.start_location }} </div>
+                        <div><b>To: </b> {{ transport_request.end_location }} </div>
+                        <div><b>Charges Per Km: </b>Ksh {{ transport_request.charges_per_km }} </div>
+                        <div><b>Means of Transport: </b>{{ transport_request.means_of_transport }}</div>
+                        <div><b>Posted On: </b> {{ transport_request.created_at }} </div>
+                        <hr>
+                    </div>                    
+                </div>          
+            
+        </div>
+    </div><!--end of row class-->
+
+   
+</div><!--end of conatiner class-->
+
+{% endblock %}

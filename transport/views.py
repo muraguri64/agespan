@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -60,6 +60,11 @@ def all_transport_requests_view(request):
 def all_transport_offers_view(request):
     transport_offers = Offer_Transport.objects
     return render(request, 'transport/transport-offers.html', {'transport_offers': transport_offers} )
+
+
+def transport_request_detail_view(request, request_id):
+    transport_request = get_object_or_404(Request_Transport, pk=request_id)
+    return render(request, 'transport/transport_request_detail.html', {'transport_request':transport_request})
 
 
 
