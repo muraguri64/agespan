@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -31,3 +31,8 @@ def sell_product_view(request):
 def store_products_view(request):
     products = Store_Product.objects
     return render(request, 'store/storeproducts.html', {'products': products} )
+
+
+def product_detail_view(request, product_id):
+    product = get_object_or_404(Store_Product, pk=product_id)
+    return render(request, 'store/product_detail.html', {'product':product})
