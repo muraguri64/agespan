@@ -49,9 +49,9 @@
                     <div class="card">
                         <div class="card-header">{{ transport_request.cargo_type }}</div>
                         <div class="card-body">
-                          <p class="card-text"><b>Quantity: </b> {{ transport_request.quantity }} tonnes</p>
+                          <p class="card-text"><b>Quantity: </b> {{ transport_request.quantity_in_tones }} tonnes</p>
                           <p class="card-text"><b>From: </b> {{ transport_request.start_location }}</p>
-                          <p class="card-text"><b>To: </b> Ksh {{ transport_request.end_location }}</p>
+                          <p class="card-text"><b>To: </b>{{ transport_request.end_location }}</p>
                           <p class="card-text"><b>Posted On: </b> {{ transport_request.created_at }}</p>
                         </div>
                         <div class="card-footer">
