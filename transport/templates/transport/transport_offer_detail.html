@@ -1,0 +1,69 @@
+{% extends 'base.html '%} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h3headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h3headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 id="h3headline"><span class="head-line-center">Transport Detail</span></h3>
+        </div>
+    </div><!--end of row class-->    
+
+    <div class="row">
+        <div class="col-md-12">           
+                
+                <div class="card">
+                    <div class="card-header"><b>{{ transport_offer.vehicle_make }}</b></div>
+                    <img class="card-img-top" src="{{ transport_offer.vehicle_image.url }}" height="350px" alt="{{ transport_offer.vehicle_make }}">
+                    <div class="card-body">
+                        <div><b>Number Plate: </b> {{ transport_offer.vehicle_number_plate }} </div>
+                        <div><b>Vehicle Make: </b> {{ transport_offer.vehicle_make }}</div>
+                        <div><b>Preffered Cargo: </b> {{ transport_offer.preferred_cargo }}</div>
+                        <div><b>Charges Per Km: </b> {{ transport_offer.charges_per_km }}</div>                        
+                        <div><b>Posted On: </b> {{ transport_offer.created_at }}</div>
+                        <hr>
+                        <div id="number_of_requests">
+                            <div><b>Number of Requests: </b></div>
+                            <div>0</div>
+                        </div><!-- End of number_of_requests-->
+                    </div>                    
+                </div>          
+            
+        </div>
+    </div><!--end of row class-->
+
+   
+</div><!--end of conatiner class-->
+
+{% endblock %}

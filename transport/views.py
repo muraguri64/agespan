@@ -67,6 +67,11 @@ def transport_request_detail_view(request, request_id):
     return render(request, 'transport/transport_request_detail.html', {'transport_request':transport_request})
 
 
+def transport_offer_detail_view(request, offer_id):
+    transport_offer = get_object_or_404(Offer_Transport, pk=offer_id)
+    return render(request, 'transport/transport_offer_detail.html', {'transport_offer':transport_offer})
+
+
 
 
 
