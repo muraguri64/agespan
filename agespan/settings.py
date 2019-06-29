@@ -67,7 +67,7 @@ ROOT_URLCONF = 'agespan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['agespan/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'agespan/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
