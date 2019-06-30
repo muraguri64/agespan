@@ -10,5 +10,5 @@ local_settings.py
 db.sqlite3
 /media
 /static
-/agespan/settings.py
+agespan/settings.py
 
