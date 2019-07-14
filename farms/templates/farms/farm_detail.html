@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h3headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h3headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 id="h3headline"><span class="head-line-center">Farm Details</span></h3>
+        </div>
+    </div><!--end of row class-->    
+
+    <div class="row">
+        <div class="col-md-12">           
+                
+                <div class="card">
+                    <div class="card-header"><b>{{ farm.farm_name }}</b></div>
+                    <img class="card-img-top" src="{{ farm.image.url }}" height="350px" alt="{{ farm.farm_name }}">
+                    <div class="card-body">
+                        <div><b>Farm Size: </b> {{ farm.farm_size }}</div>
+                        <div><b>Crop Grown: </b> {{ farm.crop_grown }}</div>
+                        <div><b>Planting Date: </b> {{ farm.planting_date }}</div>
+                        <div><b>Region: </b> {{ farm.region }}</div>
+                        <div><b>Location: </b> {{ farm.location }}</div>
+                        <div><b>Nearest Town: </b> {{ farm.nearest_town }}</div>                        
+                        <div><b>Posted On: </b> {{ farm.created_at }}</div>
+                        <hr>
+                        <div id="current_problem">
+                            <div><b>Current Problem: </b></div>
+                            <div>{{ farm.current_problem }}</div>
+                        </div><!-- End of current_problem id-->
+                        <hr>
+                        <div id="farm_history">
+                            <div><b>Farm History: </b></div>
+                            <div>{{ farm.farm_history}}</div>
+                        </div><!-- End of farm_history id-->
+
+                    </div>                    
+                </div>          
+            
+        </div>
+    </div><!--end of row class-->
+
+   
+</div><!--end of conatiner class-->
+
+{% endblock %}

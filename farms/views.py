@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -33,5 +32,10 @@ def register_farm_view(request):
 def all_farms_view(request):
     farms = Register_Farm.objects
     return render(request, 'farms/allfarms.html', {'farms': farms} )
+
+
+def farm_detail_view(request, farm_id):
+    farm = get_object_or_404(Register_Farm, pk=farm_id)
+    return render(request, 'farms/farm_detail.html', {'farm':farm})
 
 
