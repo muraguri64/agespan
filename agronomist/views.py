@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -56,6 +56,11 @@ def request_agronomist_view(request):
 def all_agronomists_view(request):
     agronomists = Register_Agronomist.objects
     return render(request, 'agronomist/allagronomists.html', {'agronomists': agronomists} )
+
+
+def agronomist_detail_view(request, agronomist_id):
+    agronomist = get_object_or_404(Register_Agronomist, pk=agronomist_id)
+    return render(request, 'agronomist/agronomist_detail.html', {'agronomist':agronomist})
 
 
 def all_requested_agronomists_view(request):

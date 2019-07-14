@@ -1,6 +1,6 @@
 from django.urls import path, include, re_path
 
-from .views import register_agronomist_view, all_agronomists_view, request_agronomist_view, all_requested_agronomists_view
+from .views import register_agronomist_view, all_agronomists_view, request_agronomist_view, all_requested_agronomists_view, agronomist_detail_view
 
 
 urlpatterns = [
@@ -8,6 +8,7 @@ urlpatterns = [
     path('all-agronomists/', all_agronomists_view, name="all-agronomists"),
     path('request-agronomist/', request_agronomist_view, name="request-agronomist"),
     path('all-requested-agronomists/', all_requested_agronomists_view, name="all-requested-agronomists"),
+    path('detail/<int:agronomist_id>', agronomist_detail_view, name="agronomist_detail"),
     
 
 
