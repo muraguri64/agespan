@@ -55,7 +55,7 @@
                           <p class="card-text"><b>Posted On: </b> {{ agrovet.created_at }}</p>
                         </div>
                         <div class="card-footer">
-                                <a href="#" class="btn btn-primary">View</a>
+                            <a href="{% url 'agrovet_detail' agrovet.id %}" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 {% endfor %}

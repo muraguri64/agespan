@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -54,6 +54,11 @@ def request_product_view(request):
 def all_agrovets_view(request):
     agrovets = Register_Agrovet.objects
     return render(request, 'agrovets/allagrovets.html', {'agrovets': agrovets} )
+
+def agrovet_detail_view(request, agrovet_id):
+    agrovet = get_object_or_404(Register_Agrovet, pk=agrovet_id)
+    return render(request, 'agrovets/agrovet_detail.html', {'agrovet':agrovet})
+
 
 def all_requested_products_view(request):
     requested_products = Request_Product.objects
