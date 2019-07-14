@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -42,10 +42,15 @@ def upcoming_events_view(request):
 def previous_events_view(request):
     today = date.today()
     previous_events = Event.objects.filter(start_date__year__lte  = today.year,
-                                           start_date__month__lte = today.month,
+                                           start_date__month__lt  = today.month,
                                            start_date__day__lte   = today.day)
-
     return render(request, 'events/previous-events.html', {'previous_events': previous_events} )
+
+
+def event_detail_view(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    return render(request, 'events/event_detail.html', {'event':event})
+    
 
 
 

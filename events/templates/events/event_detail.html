@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h3headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h3headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 id="h3headline"><span class="head-line-center">Event Details</span></h3>
+        </div>
+    </div><!--end of row class-->    
+
+    <div class="row">
+        <div class="col-md-12">           
+                
+                <div class="card">
+                    <div class="card-header"><b>{{ event.event_name }}</b></div>
+                    {% if event.poster %}
+                        <img class="card-img-top" src="{{ event.poster.url }}" height="350px" alt="{{ event.event_name }}">
+                    {% endif %}
+                    <div class="card-body">                                      
+                        <div><b>Region: </b> {{ event.region }}</div>
+                        <div><b>Location: </b> {{ event.location }}</div>
+                        <div><b>Nearest Town: </b> {{ event.nearest_town }}</div>                        
+                        <div><b>Start Date: </b> {{ event.start_date }}</div>
+                        <div><b>End Date: </b> {{ event.end_date }}</div>
+                        <div><b>Organizer Name: </b> {{ event.organizer_name }}</div>
+                        <div><b>Organizer Contact: </b> {{ event.organizer_contact }}</div>
+                        <hr>                        
+                        <div id="event_description">
+                            <div><b>Event Description: </b></div>
+                            <div>{{ event.description}}</div>
+                        </div><!-- End of event_description id-->
+
+                    </div>                    
+                </div>          
+            
+        </div>
+    </div><!--end of row class-->
+
+   
+</div><!--end of conatiner class-->
+
+{% endblock %}
