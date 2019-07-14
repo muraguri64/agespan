@@ -55,7 +55,7 @@
                           <p class="card-text"><b>Posted On: </b> {{ requested_agronomist.created_at }}</p>
                         </div>
                         <div class="card-footer">
-                                <a href="#" class="btn btn-primary">View</a>
+                            <a href="{% url 'requested_agronomist_detail' requested_agronomist.id %}" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 {% endfor %}

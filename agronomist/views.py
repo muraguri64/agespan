@@ -68,6 +68,7 @@ def all_requested_agronomists_view(request):
     return render(request, 'agronomist/requestedagronomists.html', {'requested_agronomists': requested_agronomists} )
 
 
-
-
+def requested_agronomist_detail_view(request, request_id):
+    requested_agronomist = get_object_or_404(Request_Agronomist, pk=request_id)
+    return render(request, 'agronomist/requested_agronomist_detail.html', {'requested_agronomist':requested_agronomist})
 
