@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% load staticfiles %} 
+
+{% block mystyles %}
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h3headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h3headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %} 
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 id="h3headline"><span class="head-line-center">Equipment Details</span></h3>
+        </div>
+    </div><!--end of row class-->    
+
+    <div class="row">
+        <div class="col-md-12">           
+                
+                <div class="card">
+                    <div class="card-header"><b>{{ sell_equipment.equipment_name }}</b></div>
+                    {% if sell_equipment.image %}
+                        <img class="card-img-top" src="{{ sell_equipment.image.url }}" height="350px" alt="{{ sell_equipment.sell_equipment_name }}">
+                    {% endif %}
+                   
+                    <div class="card-body">
+                        <div><b>Equipment Type: </b> {{ sell_equipment.equipment_type }}</div>                        
+                        <div><b>Region: </b> {{ sell_equipment.region }}</div>
+                        <div><b>Current Location: </b> {{ sell_equipment.current_location }}</div>
+                        <div><b>Price Range: </b> <i>Ksh</i> {{ sell_equipment.price_range_from }} <b>-</b> <i>Ksh</i> {{ sell_equipment.price_range_to }} </div>                        
+                        <div><b>Manufacture Year: </b> {{ sell_equipment.manufacture_year }}</div>
+                        <div><b>Posted On: </b> {{ sell_equipment.created_at }}</div>
+                        <hr>                      
+
+                    </div>                    
+                </div>          
+            
+        </div>
+    </div><!--end of row class-->
+
+   
+</div><!--end of conatiner class-->
+
+{% endblock %}

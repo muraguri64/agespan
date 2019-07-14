@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -53,6 +53,15 @@ def sell_equipment_view(request):
 def all_let_equipments_view(request):
     let_equipments = Let_Equipment.objects
     return render(request, 'equipment/all-let-equipments.html', {'let_equipments': let_equipments} )
+
+
+def let_equipment_detail_view(request, equipment_id):
+    let_equipment = get_object_or_404(Let_Equipment, pk=equipment_id)
+    return render(request, 'equipment/let_equipment_detail.html', {'let_equipment':let_equipment})
+
+def sell_equipment_detail_view(request, equipment_id):
+    sell_equipment = get_object_or_404(Sell_Equipment, pk=equipment_id)
+    return render(request, 'equipment/sell_equipment_detail.html', {'sell_equipment':sell_equipment})
 
 
 def all_sell_equipments_view(request):
