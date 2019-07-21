@@ -1,3 +1,94 @@
-{{ market_detail.crop_type }} <br/>
-{{ market_detail.region }}<br/>
+{% extends 'base.html' %} {% load staticfiles %} 
 
+
+{% block myscripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+{% endblock %}
+
+
+{% block mystyles %}
+
+
+<style>
+    .form-group.required .control-label:after {
+        content:"*";
+        color:red;
+    }
+    .head-line-center{
+        margin:0;padding:0 10px;
+        background:#fff;
+        display:inline-block;
+    }
+    #h3headline{
+        text-align:center;
+        position:relative;
+        z-index:2;
+    }
+    #h3headline:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px black;
+        z-index:-1;
+    }
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container">         
+
+    <div class="row">
+        <div class="col-md-12">                 
+          
+            <canvas id="mychart"></canvas>
+
+            <div id="title" title="{{market.crop_type}}({{market.region}})"></div>            
+            <div id="labels" labels='{% for graph_data in graph_data.all %}{{graph_data.date|date:"Y-m-d"}},{% endfor %}'></div>      
+            <div id="data" data='{% for graph_data in graph_data.all %}{{graph_data.price}},{% endfor %}'></div> 
+                                     
+                
+            
+           
+            
+        </div>
+    </div><!--end of row class-->   
+</div><!--end of conatiner class-->
+
+<script>
+    let mychart = document.getElementById('mychart').getContext('2d');
+
+    var mylabels = document.getElementById('labels').getAttribute('labels').split(",");
+    var mydata   = document.getElementById('data').getAttribute('data').split(",");
+    var title    = document.getElementById('title').getAttribute('title');
+
+    labelpop = mylabels.pop();
+    datapop  = mydata.pop();    
+
+    let masspopchart = new Chart(mychart,{
+        type: 'line',
+        data:{
+            labels:mylabels,
+            datasets:[{
+                label: 'Average Price',
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                borderColor: 'rgb(255, 99, 132)',
+                data:mydata
+            }]
+        },
+        options:{
+            title:{
+                display: true,
+                text:title,
+                fontSize:20
+            }
+        },
+    })
+</script>
+
+{% endblock %}

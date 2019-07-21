@@ -15,5 +15,7 @@ def market_view(request):
 
 
 def market_detail_view(request, market_id):
-    market_detail = get_object_or_404(Market, pk=market_id)
-    return render(request, 'market/detail.html', {'market_detail': market_detail})
+    market = get_object_or_404(Market, pk=market_id)
+    graph_data  = market.graph_data_set
+
+    return render(request, 'market/detail.html', {'graph_data': graph_data, 'market': market})

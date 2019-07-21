@@ -41,24 +41,28 @@
     </div><!--end of row class-->
 
 
+   
     <div class="row">
-        <div class="col-md-12">
-           <div class="card-columns">
+        <div class="col-md-10">
 
-                {% for market in markets.all %}
-                    <div class="card">
-                      
-                        <div class="card-body">
-                          <p class="card-text"><b>Crop Type: </b> {{ market.crop_type }}</p>              
-                          <p class="card-text"><b>Region: </b> {{ market.region }}</p>                          
-                        </div>
-                        <div class="card-footer">
-                                <a href="{% url 'market_detail' market.id%}" class="btn btn-primary">View</a>
-                        </div>
-                    </div>
-                {% endfor %}
-
-           </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>      
+                            <th scope="col">Crop Type</th>
+                            <th scope="col">Region</th>      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for market in markets.all %}
+                        <tr>      
+                            <td><a href="{% url 'market_detail' market.id %}">{{ market.crop_type }}</a></td>
+                            <td>{{ market.region }}</td>      
+                        </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>
+            </div>                 
             
         </div>
     </div><!--end of row class-->
