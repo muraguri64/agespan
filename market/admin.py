@@ -9,9 +9,9 @@ class MarketInfoAdmin(admin.ModelAdmin):
     search_fields = ('crop_type', 'region')  
 
 class Graph_Data_Info_Admin(admin.ModelAdmin):
-    list_display = ('crop_type', 'date', 'price')
-    list_filter = ('crop_type', 'date', 'price')
-    search_fields = ('crop_type', 'date', 'price') 
+    list_display = ('market', 'date', 'price')
+    list_filter = ('market', 'date', 'price')
+    search_fields = ('market', 'date', 'price') 
 
 admin.site.register(Market, MarketInfoAdmin)
 admin.site.register(Graph_Data, Graph_Data_Info_Admin)
